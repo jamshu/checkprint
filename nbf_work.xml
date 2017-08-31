@@ -1,0 +1,37 @@
+<t t-name="report.cheque_nbf">
+	  <t t-foreach="docs" t-as="o">
+		<div class="page">
+		<!-- style="position: fixed; top: 0; right: 0; bottom: 0; left: 0; margin: 0px;"> -->
+		<div>
+		</div>
+		<div>
+		</div>
+			
+			
+			<div style="position: fixed; top: 160; right: 0; bottom: 0; left: 1000; margin: 1px 1px 1px 1px; padding : 1px;  width: 200px;  height: 30px;      background-color: white;  border: 0px solid black;  z-index: 1;">
+				<h5><b> <span t-field="o.od_check_date"/> </b></h5>
+			</div>
+			
+			<t t-if="o.od_check_print">
+			<div style="position: fixed; top: 200; right: 0; bottom: 0; left: 480; margin: 1px 1px 1px 1px; padding : 1px;  width: 600px;  height: 30px;      background-color: white;  border: 0px solid black;  z-index: 1;">
+				<h5><b><b> <span t-field="o.od_check_to"/> </b></b></h5>
+			</div>
+			</t>
+			
+			<t t-if="not o.od_check_print">
+				<div style="position: fixed; top: 200; right: 0; bottom: 0; left: 480; margin: 1px 1px 1px 1px; padding : 1px;  width: 600px;  height: 30px;      background-color: white;  border: 0px solid black;  z-index: 1;">
+				<h5><b><b> <span t-field="o.partner_id"/> </b></b></h5>
+			</div>
+			
+			</t>
+
+			<div style="position: relative; top: 240; right: 0; bottom: 25; left: 420; margin: 1px 1px 1px 1px; padding : 1px;  width: 400px;  height: 30px;      background-color: white;  border: 0px solid black;  z-index: 1; text-indent: 30px">
+				<p style="line-height: 35px"><b><t t-esc="o.od_check_amount_in_words"/> ONLY</b></p>
+			</div>
+			
+			<div style="position: absolute; top: 275; right: 0; bottom: 0; left: 1010; margin: 1px 1px 1px 1px; padding : 1px;  width: 150px;  height: 30px;      background-color: white;  border: 0px solid black;  z-index: 1;">
+				<h5><b><span t-esc="'{0:,.2f}'.format(o.amount)"  widget='monetary'/></b></h5>
+			</div>
+		</div>
+	  </t>
+	</t>
